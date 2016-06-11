@@ -81,6 +81,31 @@ function getEnterDropDown(){
 	return $("#dd_entree");
 }
 
+// MOUVEMENT
+function getMouveDropDown(){
+	return $("#dd_mouvement");
+}
+
+// REUTILISATION
+function getReuDropDown(){
+	return $("#dd_reutilisation");
+}
+
+// TOTALPFC
+function getRTotalDropDown(){
+	return $("#dd_totalpfc");
+}
+
+// IMPACT
+function getImpactDropDown(){
+	return $("#dd_impact");
+}
+
+// TAILLE PONDERE
+function getRTailleDropDown(){
+	return $("#dd_taillep");
+}
+
 function getEnterOptions(){
 	return $("#opt_entree");
 }
@@ -130,22 +155,38 @@ function hideOutputs(){
 function displayOutput(checkbox){
 	switch(checkbox.name){
 		case "chk_sheet_output":
-		if(checkbox.checked)
+		if(checkbox.checked){
 			$('#sheet_output').show();
-		else
+			document.getElementById("first").checked = false;
+			document.getElementById("third").checked = false;
+			$('#line_output').hide();
+			$('#file_output').hide();
+			}
+		else{
 			$('#sheet_output').hide();
+			}
 		break;
 		case "chk_line_output":
-		if(checkbox.checked)
+		if(checkbox.checked){
 			$('#line_output').show();
-		else
+			document.getElementById("first").checked = false;
+            document.getElementById("second").checked = false;
+            $('#sheet_output').hide();
+            $('#file_output').hide();
+		}else{
 			$('#line_output').hide();
+			}
 		break;
 		case "chk_file_output":
-		if(checkbox.checked)
+		if(checkbox.checked){
 			$('#file_output').show();
-		else
+			document.getElementById("second").checked = false;
+            document.getElementById("third").checked = false;
+            $('#sheet_output').hide();
+            $('#line_output').hide();
+		}else{
 			$('#file_output').hide();
+			}
 		break;
 	}
 }
